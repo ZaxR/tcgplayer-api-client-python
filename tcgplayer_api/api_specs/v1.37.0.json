@@ -21,8 +21,88 @@
 		"http_method": "POST"
 	},
 	{
-		"name": "_bad_http_method",
+		"name": "List All Category Groups",
 		"uri": "/catalog/categories/{category_id}/groups",
-		"http_method": "obviously_fake_http_method"	
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Category Rarities",
+		"uri": "/catalog/categories/{category_id}/rarities",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Category Printings",
+		"uri": "/catalog/categories/{category_id}/printings",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Category Conditions",
+		"uri": "/catalog/categories/{category_id}/conditions",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Category Languages",
+		"uri": "/catalog/categories/{category_id}/languages",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Category Media",
+		"uri": "/catalog/categories/{category_id}/media",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Groups Details",
+		"uri": "/catalog/groups",
+		"http_method": "GET"
+	},
+	{
+		"name": "Get Group Details",
+		"uri": "/catalog/groups/{group_ids}",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Group Media",
+		"uri": "/catalog/groups/{group_id}/media",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Products",
+		"uri": "/catalog/products",
+		"http_method": "GET"
+	},
+	{
+		"name": "Get Product Details",
+		"uri": "/catalog/products/{product_ids}",
+		"http_method": "GET"
+	},
+	{
+		"name": "Get Product Details By GTIN",
+		"uri": "/catalog/products/gtin/{gtin}",
+		"http_method": "GET"
+	},
+	{
+		"name": "List Product SKUs",
+		"uri": "/catalog/products/{product_id}/skus",
+		"http_method": "GET"
+	},
+	{
+		"name": "List Related Products",
+		"uri": "/catalog/products/{product_id}/productsalsopurchased",
+		"http_method": "GET"
+	},
+	{
+		"name": "List All Product Media Types",
+		"uri": "/catalog/products/{product_id}/media",
+		"http_method": "GET"
+	},
+	{
+		"name": "Get SKU details",
+		"uri": "/catalog/skus/{sku_ids}",
+		"http_method": "GET"
+	},
+	{
+		"name": "List Conditions",
+		"uri": "/catalog/conditions",
+		"http_method": "GET"
 	}
 ]
