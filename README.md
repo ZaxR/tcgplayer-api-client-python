@@ -8,8 +8,8 @@ Example Usage
 ==============
 
 ```
->>> from auth import BearerAuth
->>> from client import TCGPlayerClient
+>>> from tcgplayer_api.auth import BearerAuth
+>>> from tcgplayer_api.client import TCGPlayerClient
 
 
 >>> PUBLIC_KEY = "x"
@@ -17,17 +17,20 @@ Example Usage
 >>> auth = BearerAuth(public_key=PUBLIC_KEY, private_key=PRIVATE_KEY)
 
 >>> client = TCGPlayerClient(auth=auth)
->>> client.get_x(1)
-{'totalItems': 265,
+>>> client.list_all_categories()
+{'totalItems': 61,
  'success': True,
  'errors': [],
- 'results': [{'groupId': 2655,
-   'name': 'Double Masters',
-   'abbreviation': '',
-   'isSupplemental': False,
-   'publishedOn': '2020-08-07T00:00:00',
-   'modifiedOn': '2020-05-29T19:11:25.973',
-   'categoryId': 1},
+ 'results': [{'categoryId': 55,
+   'name': 'Architect TCG',
+   'modifiedOn': '2018-09-17T15:21:54.233',
+   'displayName': 'Architect TCG',
+   'seoCategoryName': 'Architect TCG',
+   'sealedLabel': 'Sealed Products',
+   'nonSealedLabel': 'Singles',
+   'conditionGuideUrl': 'https://store.tcgplayer.com/',
+   'isScannable': True,
+   'popularity': 0},
   ...
  ]
 }

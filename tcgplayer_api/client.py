@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 from functools import partial
@@ -6,8 +7,8 @@ from typing import Any, Dict, List, NamedTuple, Union
 
 import requests
 
-from auth import BearerAuth
-from utils import words_to_snake_case
+from tcgplayer_api.auth import BearerAuth
+from tcgplayer_api.utils import words_to_snake_case
 
 
 logger = logging.getLogger(__name__)
@@ -86,7 +87,9 @@ class TCGPlayerClient:
         self.base_url = self.BASE_URL.format(api_version=self.version)
         self.services = {}
 
-        with open(f"api_specs/{self.version}.json", "r") as f:
+        api_file = os.path.abspath(os.path.join(os.path.dirname(__file__),
+                                                f"api_specs/{self.version}.json"))
+        with open(api_file, "r") as f:
             api_data = json.load(f)
 
         for service in api_data:
