@@ -47,6 +47,7 @@ setup(
                  "Programming Language :: Python :: 3.8"],
     keywords='mtg magic the gathering tcg player api client',
     packages=find_packages(exclude=["docs", "tests"]),
+    include_package_data=True,
     python_requires=">=3.6",
     install_requires=install_requires,
     extras_require={'docs': docs_requires,

@@ -1,10 +1,13 @@
+import json
 import logging
+from functools import partial
 from json import JSONDecodeError
 from typing import Any, Dict, List, NamedTuple, Union
 
 import requests
 
 from auth import BearerAuth
+from utils import words_to_snake_case
 
 
 logger = logging.getLogger(__name__)
@@ -12,6 +15,10 @@ logger = logging.getLogger(__name__)
 
 # TODO: Consider using werkzeug exceptions
 class UnexpectedStatusCode(Exception):
+    pass
+
+
+class HttpMethodError(Exception):
     pass
 
 
@@ -42,16 +49,16 @@ class RequestsClient:
     def __repr__(self):
         return "RequestsClient"
 
-    def get(self, url: str, **kwargs) -> Response:
-        return self._request("get", url, **kwargs)
+    # def get(self, url: str, **kwargs) -> Response:
+    #     return self._request("get", url, **kwargs)
 
-    def head(self, url: str, **kwargs) -> Response:
-        return self._request("head", url, **kwargs)
+    # def head(self, url: str, **kwargs) -> Response:
+    #     return self._request("head", url, **kwargs)
 
-    def post(self, url: str, **kwargs) -> Response:
-        return self._request("post", url, **kwargs)
+    # def post(self, url: str, **kwargs) -> Response:
+    #     return self._request("post", url, **kwargs)
 
-    def _request(self, method: str, url: str, **kwargs) -> Response:
+    def request(self, method: str, url: str, **kwargs) -> Response:
         req_headers = dict(self.headers)
         if "headers" in kwargs:
             headers_to_add = kwargs.pop("headers")
@@ -69,26 +76,49 @@ class RequestsClient:
 
 class TCGPlayerClient:
     # TODO: parameterize version
-    BASE_URL = "http://api.tcgplayer.com/v1.32.0"
+    BASE_URL = "http://api.tcgplayer.com/{api_version}"
 
-    def __init__(self, auth: BearerAuth, headers: dict = None):
+    def __init__(self, auth: BearerAuth, headers: dict = None,
+                 version: str = None, ):
         headers = headers or {}
         self.client = RequestsClient(auth=auth, headers=headers)
+        self.version = version or "v1.37.0"  # _get_latest_api_version()
+        self.base_url = self.BASE_URL.format(api_version=self.version)
+        self.services = {}
 
-    # TODO: rename method and properly parameterize path_params and body_params
-    def get_x(self, category_id: str, limit: int = 16):
-        url = self.BASE_URL + f"/catalog/categories/{category_id}/groups"
-        payload = {"limit": limit}
-        resp: Response = self.client.get(url, params=payload)
+        with open(f"api_specs/{self.version}.json", "r") as f:
+            api_data = json.load(f)
 
-        if resp.status_code != 200:
+        for service in api_data:
+            service_name = service["name"]
+            uri = service["uri"]
+            http_method = service["http_method"]
+            func_name = words_to_snake_case(service_name)
+            # Call API Method directly as a class method
+            self.__dict__[func_name] = partial(self._call, service_name, uri, http_method)
+
+    def _call(self, service_name, uri, http_method, path_params=None, **query_params):
+        # TODO: change this so path_params doesn't have to be a dict
+        path_params = path_params or {}
+
+        # Prepare API call parameters
+        request_uri = uri.format(**path_params)
+        request_url = f"{self.base_url}{request_uri}"
+
+        # Execute API Call
+        # Will raise HTTPError: "405 Client Error: Method Not Allowed for url"
+        # if a bad http_method is given
+        # TODO: See why posts aren't working ATM
+        response = self.client.request(http_method, request_url, params=query_params)
+
+        if response.status_code != 200:
             raise UnexpectedStatusCode
 
-        x = resp.json
-        if not x:
-            raise ValueError("No x found.")
+        resp_json = response.json
+        if not resp_json:
+            raise ValueError("No data returned.")
 
         # TODO, loop through pages and collect results
         # TODO create a class for the response
 
-        return x
+        return resp_json

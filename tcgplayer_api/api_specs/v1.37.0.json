@@ -1,0 +1,27 @@
+[
+	{
+		"name": "List All Categories",
+		"uri": "/catalog/categories",
+		"http_method": "GET"
+	},
+	{
+		"name": "Get Category Details",
+		"uri": "/catalog/categories/{category_ids}",
+		"http_method": "GET"
+	},
+	{
+		"name": "Get Category Search Manifest",
+		"uri": "/catalog/categories/{category_id}/search/manifest",
+		"http_method": "GET"
+	},
+	{
+		"name": "Search Category Products",
+		"uri": "/catalog/categories/{category_id}/search",
+		"http_method": "POST"
+	},
+	{
+		"name": "_bad_http_method",
+		"uri": "/catalog/categories/{category_id}/groups",
+		"http_method": "obviously_fake_http_method"	
+	}
+]
