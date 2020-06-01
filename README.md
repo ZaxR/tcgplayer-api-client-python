@@ -4,6 +4,20 @@ TCGPlayer-API
 A Python client library for the [TCGPlayer API](https://docs.tcgplayer.com/docs)
 
 
+Installation
+=============
+
+```bash
+pip install tcgplayer-api
+```
+
+Note that the latest version of tcgplayer-api will only be compatible with newer version of Python. This is to allow tcgplayer-api to take advantage of the latest language/library features and to reduce the technical debt of maintaining tcgplayer-api. See the table below for officially supported versions:
+
+| tcgplayer-api | Python |
+|:-------------:|:------:|
+|     0.0.1     |  >=3.6 |
+
+
 Example Usage
 ==============
 

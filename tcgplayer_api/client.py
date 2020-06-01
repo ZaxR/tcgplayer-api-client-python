@@ -50,15 +50,6 @@ class RequestsClient:
     def __repr__(self):
         return "RequestsClient"
 
-    # def get(self, url: str, **kwargs) -> Response:
-    #     return self._request("get", url, **kwargs)
-
-    # def head(self, url: str, **kwargs) -> Response:
-    #     return self._request("head", url, **kwargs)
-
-    # def post(self, url: str, **kwargs) -> Response:
-    #     return self._request("post", url, **kwargs)
-
     def request(self, method: str, url: str, **kwargs) -> Response:
         req_headers = dict(self.headers)
         if "headers" in kwargs:
