@@ -2,7 +2,8 @@
 	{
 		"name": "List All Categories",
 		"uri": "/catalog/categories",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This is a test description"
 	},
 	{
 		"name": "Get Category Details",
