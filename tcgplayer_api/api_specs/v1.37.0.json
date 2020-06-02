@@ -3,107 +3,127 @@
 		"name": "List All Categories",
 		"uri": "/catalog/categories",
 		"http_method": "GET",
-		"description": "This is a test description"
+		"description": "This endpoint returns a paged list of all categories supported by TCGplayer."
 	},
 	{
 		"name": "Get Category Details",
 		"uri": "/catalog/categories/{category_ids}",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns an array of categories whose Ids were specified in the categoryIds parameter.\nCategories that could be found are returned in the results array in the response.\nCategories that could not be found are indicated in the errors array."
 	},
 	{
 		"name": "Get Category Search Manifest",
 		"uri": "/catalog/categories/{category_id}/search/manifest",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns a search manifest for the specified category.\nThe search manifest describes all of the sorting options and filters that are available for this category.\nIts contents should be used to build requests to the POST /catalog/categories/{categoryId}/search endpoint."
 	},
 	{
 		"name": "Search Category Products",
 		"uri": "/catalog/categories/{category_id}/search",
-		"http_method": "POST"
+		"http_method": "POST",
+		"description": "This endpoint returns an array of product Ids that match the provided search critera.\nUse the search manifest from the GET /catalog/categories/{categoryId}/search/manifest endpoint to build requests to this endpoint.\nIf an invalid filter name is specified in the request, it will be ignored.\nUse the GET /catalog/products/{productIds} endpoint to get the details about the returned product Ids."
 	},
 	{
 		"name": "List All Category Groups",
 		"uri": "/catalog/categories/{category_id}/groups",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns a paged list of all the groups associated with the specified category."
 	},
 	{
 		"name": "List All Category Rarities",
 		"uri": "/catalog/categories/{category_id}/rarities",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all available rarities associated with the specified category."
 	},
 	{
 		"name": "List All Category Printings",
 		"uri": "/catalog/categories/{category_id}/printings",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all available printings associated with the specified category."
 	},
 	{
 		"name": "List All Category Conditions",
 		"uri": "/catalog/categories/{category_id}/conditions",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all available conditions associated with the specified category."
 	},
 	{
 		"name": "List All Category Languages",
 		"uri": "/catalog/categories/{category_id}/languages",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all available languages associated with the specified category."
 	},
 	{
 		"name": "List All Category Media",
 		"uri": "/catalog/categories/{category_id}/media",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all available media (e.g. images) associated with the specified category."
 	},
 	{
 		"name": "List All Groups Details",
 		"uri": "/catalog/groups",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all groups that match the specified criteria."
 	},
 	{
 		"name": "Get Group Details",
 		"uri": "/catalog/groups/{group_ids}",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns an array of groups whose Ids were specified in the groupIds parameter.\nGroups that could be found are returned in the results array in the response.\nGroups that could not be found are indicated in the errors array."
 	},
 	{
 		"name": "List All Group Media",
 		"uri": "/catalog/groups/{group_id}/media",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all available media (e.g. images) associated with the specified group."
 	},
 	{
 		"name": "List All Products",
 		"uri": "/catalog/products",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all products that match the specified criteria."
 	},
 	{
 		"name": "Get Product Details",
 		"uri": "/catalog/products/{product_ids}",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns an array of products whose Ids were specified in the productIds parameter.\nProducts that could be found are returned in the results array in the response.\nProducts that could not be found are indicated in the errors array."
 	},
 	{
 		"name": "Get Product Details By GTIN",
 		"uri": "/catalog/products/gtin/{gtin}",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns a Product's details using a code from the GTIN family of product codes. NOTE: Not all products will have a GTIN."
 	},
 	{
 		"name": "List Product SKUs",
 		"uri": "/catalog/products/{product_id}/skus",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns all of the available SKUs for the specified product."
 	},
 	{
 		"name": "List Related Products",
 		"uri": "/catalog/products/{product_id}/productsalsopurchased",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "Returns other products that are commonly found in the same orders as the specified anchor product."
 	},
 	{
 		"name": "List All Product Media Types",
 		"uri": "/catalog/products/{product_id}/media",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "Returns all available media (e.g. images) associated with the specified product."
 	},
 	{
 		"name": "Get SKU details",
 		"uri": "/catalog/skus/{sku_ids}",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns an array of SKUs whose Ids were specified in the skuIds parameter.\nSKUs that could be found are returned in the results array in the response.\nSKUs that could not be found are indicated in the errors array."
 	},
 	{
 		"name": "List Conditions",
 		"uri": "/catalog/conditions",
-		"http_method": "GET"
+		"http_method": "GET",
+		"description": "This endpoint returns an array contain all of the normalized conditions supported by TCGplayer, e.g. Near Mint, Lightly Played."
 	},
 	{
 		"name": "Get ProductList By Id",
@@ -440,6 +460,12 @@
 		"uri": "/stores/{store_key}/orders/{order_number}/tracking",
 		"http_method": "POST",
 		"description": "Add Order Tracking Number."
+	},
+	{
+		"name": "Refund Order",
+		"uri": "/stores/{store_key}/orders/{order_number}/refund",
+		"http_method": "POST",
+		"description": "Issue a refund for an order. New in v1.36.0."
 	}
 
 ]
