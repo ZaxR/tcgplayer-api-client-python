@@ -62,4 +62,3 @@ Roadmap to v1.0.0
 - Fix support for post and other request types besides get
 - Add module/func docstrings
 - Add basic documentation
-- Actually implement different api version selection

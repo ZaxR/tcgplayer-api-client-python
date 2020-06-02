@@ -67,16 +67,17 @@ class RequestsClient:
 
 
 class TCGPlayerClient:
+    API_SPEC_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "api_specs"))
+
     def __init__(self, auth: BearerAuth, headers: dict = None,
                  api_version: str = None, ):
         headers = headers or {}
         self.client = RequestsClient(auth=auth, headers=headers)
-        self.version = api_version or "v1.37.0"  # _get_latest_api_version()
+        self.version = api_version or self._get_latest_api_version()
         self.base_url = f"http://api.tcgplayer.com/{self.version}"
         self.services = {}
 
-        api_file = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                                f"api_specs/{self.version}.json"))
+        api_file = f"{self.API_SPEC_PATH}/{self.version}.json"
         with open(api_file, "r") as f:
             api_data = json.load(f)
 
@@ -88,6 +89,9 @@ class TCGPlayerClient:
             method.__doc__ = service.get("description")
             self.__dict__[func_name] = method
 
+    def _get_latest_api_version(self):
+        return max(os.listdir(self.API_SPEC_PATH))[:-5]  # strip ending ".json"
+
     def _method_factory(self, service_name: str, uri: str, http_method: str):
         """Factory function to create class instance methods from api_specs."""
         def service_name(path_params: dict = None, **query_params):
@@ -98,7 +102,8 @@ class TCGPlayerClient:
             # Execute API Call
             # Will raise HTTPError: "405 Client Error: Method Not Allowed for url"
             # if a bad http_method is given
-            # TODO: See why posts aren't working ATM
+            # TODO: See why posts aren't working ATM; "params" might need to be "data"
+            # See: https://requests.readthedocs.io/en/master/api/?highlight=.request#requests.Session.request
             response = self.client.request(http_method, request_url, params=query_params)
 
             if response.status_code != 200:
