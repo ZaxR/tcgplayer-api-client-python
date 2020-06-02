@@ -287,87 +287,87 @@
 	},
 	{
 		"name": "List Product Summary",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/products",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "List Product Summary."
 	},
 	{
 		"name": "List Product SKUs",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/products/{product_id}/skus",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Return all of the SKUs the store currently has listed for a specific product."
 	},
 	{
 		"name": "List Related Products",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/products/{product_id}/relatedproducts",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Related Products are other Products that are often purchased along with the specified Product."
 	},
 	{
 		"name": "List Shipping Options",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/products/{product_id}/shippingoptions",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Return a list of all of the store's available shipping options for a specific product."
 	},
 	{
 		"name": "Get SKU Quantity",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skus/{sku_id}/quantity",
 		"http_method": "GET",
 		"description": "Get SKU Quantity."
 	},
 	{
 		"name": "Increment SKU Inventory Quantity",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skus/{sku_id}/quantity",
 		"http_method": "POST",
-		"description": "xxx"
+		"description": "Increments the current store's inventory of this SKU from the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
 		"name": "Update SKU inventory",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skus/{sku_id}",
 		"http_method": "PUT",
-		"description": "xxx"
+		"description": "Adds or updates a SKU to the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
 		"name": "Batch Update Store Sku Prices",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skus/batch",
 		"http_method": "POST",
-		"description": "xxx"
+		"description": "Perform multiple price updates asynchronously in a batch.\nThe response will contain a single GUID to identify the batch.\nAll price updates are applied to the inventory of the seller indicated by the bearer token used to make this request.\nWhen the batch has been processed, a message will be sent to your application's web hook containing the GUID from this response."
 	},
 	{
 		"name": "Update SKU Inventory Price",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skus/{sku_id}/price",
 		"http_method": "PUT",
-		"description": "xxx"
+		"description": "Updates the current store's pricing of this SKU from the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
 		"name": "List SKU List Price",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skuprices",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "This listing comes from the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
 		"name": "Get SKU List Price",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/skuprices/{sku_list_price_id}",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Get SKU List Price."
 	},
 	{
 		"name": "List All Groups",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/groups",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "This listing comes from the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
 		"name": "List All Categories",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/categories",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "List All Categories."
 	},
 	{
 		"name": "List Product Summary By Category",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/categories/{category_id}/search",
 		"http_method": "POST",
-		"description": "xxx"
+		"description": "List all products based on criteria."
 	},
 	{
 		"name": "List Store Channels",
