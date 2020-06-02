@@ -1,5 +1,9 @@
 TCGPlayer-API
-========================================
+======================================== 
+<a href="https://pypi.org/project/tcgplayer-api/"><img src="https://img.shields.io/pypi/v/tcgplayer-api?style=for-the-badge" alt="latest release" /></a>
+<a href="https://pypi.org/project/tcgplayer-api/"><img src="https://img.shields.io/pypi/pyversions/tcgplayer-api?style=for-the-badge" alt="supported python versions" /></a>
+<a href="https://pypi.org/project/tcgplayer-api/"><img src="https://img.shields.io/pypi/status/tcgplayer-api?style=for-the-badge" alt="package status" /></a>
+<a href="https://github.com/ZaxR/tcgplayer-api-client-python/blob/master/LICENSE"><img src="https://img.shields.io/pypi/l/tcgplayer-api?style=for-the-badge" alt="license" /></a>
 
 A Python client library for the [TCGPlayer API](https://docs.tcgplayer.com/docs)
 
