@@ -371,75 +371,75 @@
 	},
 	{
 		"name": "List Store Channels",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/channels",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "List All Channels for a Store."
 	},
 	{
 		"name": "List Top Sold Products",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/topsales",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "This listing comes from the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
 		"name": "Search Top Sold Products",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/topsalessearch",
 		"http_method": "POST",
-		"description": "xxx"
+		"description": "This listing comes from the current Store's inventory whose Seller is associated with the user's bearer token making this API call.\nSimilar to the other Top Sales Search except that you can specify search criteria in the sellerTssc parameter."
 	},
 	{
 		"name": "List Catalog Objects",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/search",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "SearchResults returned can include Product, Groups, and Categories."
 	},
 	{
 		"name": "Search Custom Listings",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/inventory/customListings",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Retrieves the custom listing by the criteria passed in the querystring."
 	},
 	{
 		"name": "Get Order Manifest",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders/manifest",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Get Order Manifest."
 	},
 	{
 		"name": "Get Order Details",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders/{order_numbers}",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Get Order Details."
 	},
 	{
 		"name": "Get Order Feedback",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders/{order_number}/feedback",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Get Order Feedback."
 	},
 	{
 		"name": "Search Orders",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Search Orders."
 	},
 	{
 		"name": "Get Order Items",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders/{order_number}/items",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Get Order Items."
 	},
 	{
 		"name": "Get Order Tracking Numbers",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders/{order_number}/tracking",
 		"http_method": "GET",
-		"description": "xxx"
+		"description": "Get Order Tracking Numbers."
 	},
 	{
 		"name": "Add Order Tracking Number",
-		"uri": "/xxx",
+		"uri": "/stores/{store_key}/orders/{order_number}/tracking",
 		"http_method": "POST",
-		"description": "xxx"
+		"description": "Add Order Tracking Number."
 	}
 
 ]
