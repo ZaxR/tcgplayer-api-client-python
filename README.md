@@ -56,8 +56,11 @@ Example Usage
 
 Roadmap to v1.0.0
 ==============
-- Add parameters to v1.37.0.json
-- Improve endpoint methods to have base docstrings and arg info
 - Fix support for post and other request types besides get
+- Add pagination support for responses
 - Add module/func docstrings
 - Add basic documentation
+- Add parameters to v1.37.0.json
+- Improve endpoint methods' docstrings to include arg info
+- Add more meaningful error messages when required params are missing or for various status codes
+
