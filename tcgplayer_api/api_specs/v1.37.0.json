@@ -104,5 +104,29 @@
 		"name": "List Conditions",
 		"uri": "/catalog/conditions",
 		"http_method": "GET"
-	}
+	},
+	{
+		"name": "Get ProductList By Id",
+		"uri": "/inventory/productlists/{product_list_id}",
+		"http_method": "GET",
+		"description": "Returns the ProductList specified by using the ProductListId."
+	},
+	{
+		"name": "Get ProductList By Key",
+		"uri": "/inventory/productlists/{product_list_key}",
+		"http_method": "GET",
+		"description": "Returns the ProductList specified by using the ProductListKey."
+	},
+	{
+		"name": "List All ProductLists",
+		"uri": "/inventory/productLists",
+		"http_method": "GET",
+		"description": "This lists all the accessible ProductLists to the user identified in the bearer token making the API call."
+	},
+	{
+		"name": "Create ProductList",
+		"uri": "/inventory/productLists",
+		"http_method": "POST",
+		"description": "Create a new list of products similar to how the Quicklist application creates a new list. From there the product list can be used to list new products through the Seller Portal interface on a Pro account."
+	},
 ]

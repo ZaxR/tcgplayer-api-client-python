@@ -49,3 +49,14 @@ Example Usage
  ]
 }
 ```
+
+Roadmap to v1.0.0
+==============
+- Expose all endpoints for v1.37.0
+- Add descriptions and parameters to v1.37.0
+- Improve endpoint interface to just take kwargs
+- Improve endpoint methods to have base docstrings and arg info
+- Fix support for post and other request types besides get
+- Add module/func docstrings
+- Add basic documentation
+- Actually implement different api version selection
