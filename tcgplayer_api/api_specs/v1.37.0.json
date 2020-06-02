@@ -164,5 +164,282 @@
 		"uri": "/pricing/buy/sku/{sku_ids}",
 		"http_method": "GET",
 		"description": "Returns all SKU buylist prices for the Ids specified.\nBuylist prices that could be found are returned in the results array in the response.\nBuylist prices that could not be found are indicated in the errors array."
+	},
+	{
+		"name": "Batch Update Store Buylist Prices",
+		"uri": "/stores/{store_key}/buylist/skus/batch",
+		"http_method": "POST",
+		"description": "Perform multiple buylist updates asynchronously in a batch.\nThe response will contain a single GUID to identify the batch.\nAll buylist updates are applied to the buylist of the seller indicated by the bearer token used to make this request.\nWhen the batch has been processed, a message will be sent to your application's web hook containing the GUID from this response."
+	},
+	{
+		"name": "Create SKU Buylist",
+		"uri": "/stores/{store_key}/buylist/skus/{sku_id}",
+		"http_method": "PUT",
+		"description": "Creates a new Buylist price for a SKU that doesn't have an existing Buylist price.\nBecause all Buylists take from actual money that has been set aside on TCGplayer, use this endpoint with extreme caution!"
+	},
+	{
+		"name": "Update SKU Buylist Price",
+		"uri": "/stores/{store_key}/buylist/skus/{sku_id}/price",
+		"http_method": "PUT",
+		"description": "Updates a Buylist pricing that has already been set in the system,\neither through 'Create SKU Buylist' or through the TCGplayer interface.\nAccepts price in the body of a request."
+	},
+	{
+		"name": "Update SKU Buylist Quantity",
+		"uri": "/stores/{store_key}/buylist/skus/{sku_id}/quantity",
+		"http_method": "PUT",
+		"description": "Updates a Buylist quantity that has already been set in the system,\neither through 'Create SKU Buylist' or through the TCGplayer interface."
+	},
+	{
+		"name": "Get Buylist Categories",
+		"uri": "/stores/{store_key}/buylist/categories",
+		"http_method": "GET",
+		"description": ""
+	},
+	{
+		"name": "Get Buylist Groups",
+		"uri": "/stores/{store_key}/buylist/groups",
+		"http_method": "GET",
+		"description": ""
+	},
+	{
+		"name": "Get Store Buylist Settings",
+		"uri": "/stores/{store_key}/buylist/settings",
+		"http_method": "GET",
+		"description": ""
+	},
+	{
+		"name": "Get a Stores Buylist Products for Kiosk use",
+		"uri": "/stores/{store_key}/buylist/products",
+		"http_method": "GET",
+		"description": ""
+	},
+	{
+		"name": "Get the Product Conditions for a Product on a Stores Buylist",
+		"uri": "/stores/{store_key}/buylist/{product_id}",
+		"http_method": "GET",
+		"description": ""
+	},
+	{
+		"name": "Search Stores",
+		"uri": "/stores",
+		"http_method": "GET",
+		"description": "Returns a collection of storeKey values based on the search parameters."
+	},
+	{
+		"name": "Get Free Shipping Option",
+		"uri": "/stores/{store_key}/freeshipping/settings",
+		"http_method": "GET",
+		"description": "Gets the current Store's Free Shipping option (if exists) whose Seller is associated with the user's bearer token making this API call."
+	},
+	{
+		"name": "Get Store Address",
+		"uri": "/stores/{store_key}/address",
+		"http_method": "GET",
+		"description": "Return address information about the Store specified by the storeKey."
+	},
+	{
+		"name": "Get Store Feedback",
+		"uri": "/stores/{store_key}/feedback",
+		"http_method": "GET",
+		"description": "Return feedback information about the Store specified by the storeKey."
+	},
+	{
+		"name": "Set Store Status",
+		"uri": "/stores/{store_key}/status/{status}",
+		"http_method": "PUT",
+		"description": "If a store's status is either Live or Hold - User Request then this action may be called to flip the store between the two.\nWhen the store is Live, it's inventory is visible in the marketplace.\nWhen the store is not Live, it's inventory is hidden from the marketplace.\nStores may voluntarily hide their inventory by switching their status to Hold - User Request.\nThere are other statuses that TCGplayer can put the store in that wil cause it's inventory to be hidden from the marketplace.\nStores cannot put themselves in or take themselves out of these statuses.\nOnly a TCGplayer admin or customer service rep can interact with stores with these statuses."
+	},
+	{
+		"name": "Get Customer Summary",
+		"uri": "/stores/{store_key}/customers/{token}",
+		"http_method": "GET",
+		"description": "Returns the total number of orders and total product dollar amount for all orders a customer has place with the seller.\nThe token represents the unique seller and customer combination."
+	},
+	{
+		"name": "Search Store Customers",
+		"uri": "/stores/{store_key}/customers",
+		"http_method": "GET",
+		"description": "Search Store Customers."
+	},
+	{
+		"name": "Get Customer Addresses",
+		"uri": "/stores/{store_key}/customers/{token}/addresses",
+		"http_method": "GET",
+		"description": "Returns the shipping addresses associated with the orders a customer has placed with the seller.\nThe token represents the unique seller and customer combination."
+	},
+	{
+		"name": "Get Customer Orders",
+		"uri": "/stores/{store_key}/customers/{token}/orders",
+		"http_method": "GET",
+		"description": "Returns a list of orders containing the total product quantity and total product dollar amount for each order a customer has placed with the seller.\nThe token represents the unique seller and customer combination."
+	},
+	{
+		"name": "Get Store Info",
+		"uri": "stores/{store_keys}",
+		"http_method": "GET",
+		"description": "Return general information about the stores specified by the store keys.\n`store_keys` can also be self to get information about the current Store associated with the current bearer token"
+	},
+	{
+		"name": "Get Product Inventory Quantities",
+		"uri": "/stores/{store_key}/inventory/products/{product_id}/quantity",
+		"http_method": "GET",
+		"description": "Get Product Inventory Quantities."
+	},
+	{
+		"name": "List Product Summary",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List Product SKUs",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List Related Products",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List Shipping Options",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get SKU Quantity",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "Get SKU Quantity."
+	},
+	{
+		"name": "Increment SKU Inventory Quantity",
+		"uri": "/xxx",
+		"http_method": "POST",
+		"description": "xxx"
+	},
+	{
+		"name": "Update SKU inventory",
+		"uri": "/xxx",
+		"http_method": "PUT",
+		"description": "xxx"
+	},
+	{
+		"name": "Batch Update Store Sku Prices",
+		"uri": "/xxx",
+		"http_method": "POST",
+		"description": "xxx"
+	},
+	{
+		"name": "Update SKU Inventory Price",
+		"uri": "/xxx",
+		"http_method": "PUT",
+		"description": "xxx"
+	},
+	{
+		"name": "List SKU List Price",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get SKU List Price",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List All Groups",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List All Categories",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List Product Summary By Category",
+		"uri": "/xxx",
+		"http_method": "POST",
+		"description": "xxx"
+	},
+	{
+		"name": "List Store Channels",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "List Top Sold Products",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Search Top Sold Products",
+		"uri": "/xxx",
+		"http_method": "POST",
+		"description": "xxx"
+	},
+	{
+		"name": "List Catalog Objects",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Search Custom Listings",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get Order Manifest",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get Order Details",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get Order Feedback",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Search Orders",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get Order Items",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Get Order Tracking Numbers",
+		"uri": "/xxx",
+		"http_method": "GET",
+		"description": "xxx"
+	},
+	{
+		"name": "Add Order Tracking Number",
+		"uri": "/xxx",
+		"http_method": "POST",
+		"description": "xxx"
 	}
+
 ]
