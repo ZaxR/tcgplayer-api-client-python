@@ -129,4 +129,40 @@
 		"http_method": "POST",
 		"description": "Create a new list of products similar to how the Quicklist application creates a new list. From there the product list can be used to list new products through the Seller Portal interface on a Pro account."
 	},
+	{
+		"name": "Get Market Price by SKU",
+		"uri": "/pricing/marketprices/{product_condition_id}",
+		"http_method": "GET",
+		"description": "Gets the current Market Price for the specified SKU."
+	},
+	{
+		"name": "List Product Prices by Group",
+		"uri": "/pricing/group/{group_id}",
+		"http_method": "GET",
+		"description": "Returns all product prices associated with the specified Group."
+	},
+	{
+		"name": "List Product Market Prices",
+		"uri": "/pricing/product/{product_ids}",
+		"http_method": "GET",
+		"description": "Returns all product market prices for the Ids specified.\nMarket prices that could be found are returned in the results array in the response.\nMarket prices that could not be found are indicated in the errors array."
+	},
+	{
+		"name": "List SKU Market Prices",
+		"uri": "/pricing/sku/{sku_ids}",
+		"http_method": "GET",
+		"description": "Returns all SKU market prices for the Ids specified.\nMarket prices that could be found are returned in the results array in the response.\nMarket prices that could not be found are indicated in the errors array."
+	},
+	{
+		"name": "List Product Buylist Prices",
+		"uri": "/pricing/buy/product/{product_ids}",
+		"http_method": "GET",
+		"description": "Returns all product buylist prices for the Ids specified.\nBuylist prices that could be found are returned in the results array in the response.\nBuylist prices that could not be found are indicated in the errors array."
+	},
+	{
+		"name": "List SKU Buylist Prices",
+		"uri": "/pricing/buy/sku/{sku_ids}",
+		"http_method": "GET",
+		"description": "Returns all SKU buylist prices for the Ids specified.\nBuylist prices that could be found are returned in the results array in the response.\nBuylist prices that could not be found are indicated in the errors array."
+	}
 ]
