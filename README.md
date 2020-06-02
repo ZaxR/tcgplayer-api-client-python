@@ -57,7 +57,6 @@ Example Usage
 Roadmap to v1.0.0
 ==============
 - Add parameters to v1.37.0.json
-- Improve endpoint interface to just take kwargs
 - Improve endpoint methods to have base docstrings and arg info
 - Fix support for post and other request types besides get
 - Add module/func docstrings

@@ -312,13 +312,13 @@
 		"description": "List Product Summary."
 	},
 	{
-		"name": "List Product SKUs",
+		"name": "List Store Product SKUs",
 		"uri": "/stores/{store_key}/inventory/products/{product_id}/skus",
 		"http_method": "GET",
 		"description": "Return all of the SKUs the store currently has listed for a specific product."
 	},
 	{
-		"name": "List Related Products",
+		"name": "List Store Related Products",
 		"uri": "/stores/{store_key}/inventory/products/{product_id}/relatedproducts",
 		"http_method": "GET",
 		"description": "Related Products are other Products that are often purchased along with the specified Product."
@@ -378,10 +378,10 @@
 		"description": "This listing comes from the current Store's inventory whose Seller is associated with the user's bearer token making this API call."
 	},
 	{
-		"name": "List All Categories",
+		"name": "List All Store Categories",
 		"uri": "/stores/{store_key}/inventory/categories",
 		"http_method": "GET",
-		"description": "List All Categories."
+		"description": "List all categories for a specific store."
 	},
 	{
 		"name": "List Product Summary By Category",

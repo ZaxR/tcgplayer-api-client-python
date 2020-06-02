@@ -94,9 +94,11 @@ class TCGPlayerClient:
 
     def _method_factory(self, service_name: str, uri: str, http_method: str):
         """Factory function to create class instance methods from api_specs."""
-        def service_name(path_params: dict = None, **query_params):
-            path_params = path_params or {}
-            request_uri = uri.format(**path_params)
+        def service_name(**parameters):
+            # Note that parameters combined path parameters and query parameters
+            # this is for convenience,
+            # but assumes that path params and query params can't collide.
+            request_uri = uri.format(**parameters)
             request_url = f"{self.base_url}{request_uri}"
 
             # Execute API Call
@@ -104,7 +106,7 @@ class TCGPlayerClient:
             # if a bad http_method is given
             # TODO: See why posts aren't working ATM; "params" might need to be "data"
             # See: https://requests.readthedocs.io/en/master/api/?highlight=.request#requests.Session.request
-            response = self.client.request(http_method, request_url, params=query_params)
+            response = self.client.request(http_method, request_url, params=parameters)
 
             if response.status_code != 200:
                 raise UnexpectedStatusCode
