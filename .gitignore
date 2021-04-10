@@ -68,6 +68,9 @@ target/
 .idea
 venv/
 
+# VS Code
+.vscode/
+
 # IPython NB Checkpoints
 .ipynb_checkpoints/
 
