@@ -71,6 +71,9 @@ venv/
 # VS Code
 .vscode/
 
+# Pipenv
+Pipfile*
+
 # IPython NB Checkpoints
 .ipynb_checkpoints/
 
@@ -82,3 +85,7 @@ secrets
 
 #metadata on Macbooks
 .DS_Store
+
+# Credential files
+credentials/
+*credentials.json
