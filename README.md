@@ -8,8 +8,16 @@
 A Python client library for the [TCGPlayer API](https://docs.tcgplayer.com/docs)
 
 
-# Installation
+# Table of Contents
+- ### [Installation](#installation-1)
+- ### [Basic Usage](#basic-usage-1)
+- ### [Advanced Usage](#advanced-usage-1)
+  - #### [Bearer Auth](#bearer-auth-1)
+  - #### [TCGPlayer Client](#tcgplayer-client-1)
+- ### [Road map to v1.0.0](#road-map-to-v1.0.0-1)
 
+
+# Installation
 
 ```bash
 pip install tcgplayer-api
@@ -23,15 +31,8 @@ pip install tcgplayer-api
 
 Note: the latest version of tcgplayer-api will only be compatible with newer versions of Python. This is to allow tcgplayer-api to take advantage of the latest language/library features and to reduce the technical debt of maintaining tcgplayer-api.
 
-# Table of Contents
-- ### [Basic Usage](#basic-usage)
-- ### [Advanced Usage](#advanced-usage)
-  - #### [BearerAuth](#bearer-auth)
-  - #### [TCGPlayerClient](#tcgplayer-client)
-- ### [Road map to v1.0.0](#road-map-to-v1.0.0)
 
 # Basic Usage
-
 
 ```python
 >>> from tcgplayer_api.auth import BearerAuth
