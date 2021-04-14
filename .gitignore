@@ -92,3 +92,6 @@ secrets
 # Credential files
 credentials/
 *credentials.json
+
+# Personal scripts (Future Features)
+my_scripts/
