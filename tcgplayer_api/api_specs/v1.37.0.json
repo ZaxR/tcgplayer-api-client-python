@@ -295,7 +295,7 @@
 	},
 	{
 		"name": "Get Store Info",
-		"uri": "stores/{store_keys}",
+		"uri": "/stores/{store_keys}",
 		"http_method": "GET",
 		"description": "Return general information about the stores specified by the store keys.\n`store_keys` can also be self to get information about the current Store associated with the current bearer token"
 	},
