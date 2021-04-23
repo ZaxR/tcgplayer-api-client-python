@@ -5,16 +5,13 @@ from datetime import datetime, timedelta
 import requests
 
 
-EXPIRATION_FORMAT_STR = "%a, %d %b %Y %H:%M:%S %Z"
-
-
 class BearerAuth(requests.auth.AuthBase):
-    f'''
+    '''
     The BearerAuth object contains all necessary data for API authentication
 
     Args:
         token (str): token string generated from TCGPlayer API
-        token_expiration (str): token expiration string (format: {EXPIRATION_FORMAT_STR})
+        token_expiration (str): token expiration string (format in `EXPIRATION_FORMAT_STR`)
         public_key (str): public key given to the user by TCGPlayer API management
         private_key (str): private key given to the user by TCGPlayer API management
 
@@ -22,8 +19,7 @@ class BearerAuth(requests.auth.AuthBase):
         token (str): token string generated from TCGPlayer API
         expires (datetime): token expiration time
     '''
-
-    EXPIRATION_FORMAT_STR = EXPIRATION_FORMAT_STR
+    EXPIRATION_FORMAT_STR = "%a, %d %b %Y %H:%M:%S %Z"
     MIN_TIME_TO_EXPIRATION = timedelta(hours=6)
     TOKEN_URL = "https://api.tcgplayer.com/token"
 

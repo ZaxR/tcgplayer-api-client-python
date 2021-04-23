@@ -68,7 +68,7 @@ class RequestsClient:
 
 
 class TCGPlayerClient:
-    f'''
+    '''
     The TCGPlayerClient contains all components necessary to make calls to the
     TCGPlayer API using the requests library. It's methods are derived from the 
     file in api_specs/ corresponding to either the supplied or most recent API version.
@@ -76,7 +76,7 @@ class TCGPlayerClient:
     Args:
         auth (BearerAuth): token object used for API authentication
         headers (dict): extra headers to append to every API call (Optional)
-        api_version (str): API version to use, ex. 'vx.x.x', if not supplied,
+        api_version (str): API version to use, ex. 'vX.X.X', if not supplied,
                            the most recent one will be used
 
     Attributes:
@@ -109,11 +109,11 @@ class TCGPlayerClient:
             func_name = words_to_snake_case(service["name"])
             method = self._method_factory(func_name, service["uri"], service["http_method"])
             method.__name__ = method.__qualname__ = func_name
-            method.__doc__ = service.get("description")
+            method.__doc__ = self._create_method_documentation(service.get("description"))
             self.__dict__[func_name] = method
 
 
-    def _api_call(self, http_method, url, query_params={}, body_params={}):
+    def _api_call(self, http_method: str, url: str, query_params: dict={}, body_params: dict={}):
         """
         Internal function used to perform API calls based on given arguments.
             - Wraps the timer check to avoid exceeding API call limit.
@@ -147,6 +147,51 @@ class TCGPlayerClient:
             raise ValueError(f"No data returned from {http_method} {url} with query_params:\n{query_params}")
 
         return response_data
+
+
+    def _create_method_documentation(self, description: str, body_params: list=[], path_params: list=[], query_params: list=[], response_schema=None):
+        """Function used to create the docstring for factory methods based on API specs input"""
+        def parameter_to_string(param: dict):
+            """Function used to create the docstring line for method parameters"""
+            result = "\t"
+            name = param.get("name", "")
+            p_type = param.get("type", "")
+            description = param.get("description", "").strip()
+            if description and not description.endswith("."):
+                description += "."
+            if name and p_type:
+                result += f"- {name} ({p_type}): {description}"
+            default = param.get("default_value", None)
+            if default is not None:
+                if p_type == "str":
+                    default = f"'{default}'"
+                result += f" The default value is {default}." # NOTE: Leave starting space b/c of .strip()
+            return result
+        
+        result = ""
+        result = description
+        body_printed = False
+        for param in body_params:
+            if not body_printed:
+                body_printed = True
+                result += "\nBody Parameters:\n"
+            result += parameter_to_string(param) + "\n"
+        path_printed = False
+        for param in path_params:
+            if not path_printed:
+                path_printed = True
+                result += "\nPath Parameters:\n"
+            result += parameter_to_string(param) + "\n"
+        query_printed = False
+        for param in query_params:
+            if not query_printed:
+                query_printed = True
+                result += "\nQuery Parameters:\n"
+            result += parameter_to_string(param) + "\n"
+        if response_schema is not None:
+            result += "\nResponse Format:\n"
+            # TODO: Response schema to string
+        return result
 
 
     def _get_latest_api_version(self):
