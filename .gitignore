@@ -33,6 +33,9 @@ var/
 pip-log.txt
 pip-delete-this-directory.txt
 
+# PyTest
+.pytest*/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -68,6 +71,12 @@ target/
 .idea
 venv/
 
+# VS Code
+.vscode/
+
+# Pipenv
+Pipfile*
+
 # IPython NB Checkpoints
 .ipynb_checkpoints/
 
@@ -79,3 +88,10 @@ secrets
 
 #metadata on Macbooks
 .DS_Store
+
+# Credential files
+credentials/
+*credentials.json
+
+# Personal scripts (Future Features)
+my_scripts/
